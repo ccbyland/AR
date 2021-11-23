@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR</title>
+    <script src="./js/aframe-master.min.js"></script>
+    <script src="./js/aframe-ar-nft.js"></script>
+  </head>
+  <body>
+    <!-- 场景是一个全局根对象，所有的实体都被包含在场景中 -->
+    <a-scene>
+      <!-- 使用资源管理系统来缓存资源，为了更好的性能，这个标签内的资源将会预加载缓存起来 -->
+      <a-assets>
+        <img id="universe" src="./image/a.jpg">
+      </a-assets>
+      <!-- preset：预设的参数 -->
+      <a-marker type="pattern" url="./patt/sum.patt">
+        <a-image rotation="0 0 0" src="#universe"></a-image>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
