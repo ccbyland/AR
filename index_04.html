@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>开启标记跟踪</title>
+    <script src="./js/aframe-master.min.js"></script>
+    <script src="./js/aframe-ar-nft.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="basketball" src="./image/basketball.jpeg">
+      </a-assets>
+      <a-marker type="pattern" url="./tag/JD.patt">
+        <a-image rotation="90 0 0" src="#basketball"></a-image>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
