@@ -3,25 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>开启标记跟踪</title>
+    <title>虚拟现实：标记跟踪-显示视频</title>
     <script src="./js/aframe-master.min.js"></script>
     <script src="./js/aframe-ar-nft.js"></script>
   </head>
   <body>
-    <a-scene>
+    <!-- 设置超时时间 -->
+    <a-scene timeout="5000">
       <a-assets>
-        <img id="jd" src="./image/jd.jpeg">
-        <img id="tm" src="./image/tm.jpeg">
-        <img id="qq" src="./image/qq.png">
+        <img id="jd" src="./image/jd.jpeg" />
+        <video id="video" src="./video/test.mp4" />
       </a-assets>
       <a-marker type="pattern" url="./tag/JD.patt">
         <a-image rotation="180 0 0" src="#jd"></a-image>
-      </a-marker>
-      <a-marker type="pattern" url="./tag/TM.patt">
-        <a-image rotation="180 0 0" src="#tm"></a-image>
-      </a-marker>
-      <a-marker type="pattern" url="./tag/QQ.patt">
-        <a-image rotation="180 0 0" src="#qq"></a-image>
+        <!-- <a-entity geometry="primitive: plane" material="src: #video"></a-entity> -->
+        <!-- <a-image rotation="180 0 0" src="#video"></a-image> -->
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
