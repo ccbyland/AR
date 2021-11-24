@@ -1,25 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>虚拟现实：标记跟踪-显示视频</title>
-    <script src="./js/aframe-master.min.js"></script>
-    <script src="./js/aframe-ar-nft.js"></script>
-  </head>
-  <body>
-    <!-- 设置超时时间 -->
-    <a-scene timeout="5000">
-      <a-assets>
-        <img id="jd" src="./image/jd.jpeg" />
-        <video id="video" src="./video/test.mp4" />
-      </a-assets>
-      <a-marker type="pattern" url="./tag/JD.patt">
-        <a-image rotation="180 0 0" src="#jd"></a-image>
-        <!-- <a-entity geometry="primitive: plane" material="src: #video"></a-entity> -->
-        <!-- <a-image rotation="180 0 0" src="#video"></a-image> -->
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>虚拟现实：标记跟踪-显示图片</title>
+        <script src="./js/aframe-master.min.js"></script>
+        <script src="./js/aframe-ar-nft.js"></script>
+    </head>
+
+    <body style="margin: 0px; overflow: hidden">
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            renderer="antialias: true; alpha: true; precision: mediump;"
+            embedded
+            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+        >
+            <a-assets>
+                <video
+                    src="./video/demo.mp4"
+                    preload="auto"
+                    id="vid"
+                    response-type="arraybuffer"
+                    loop
+                    crossorigin
+                    webkit-playsinline
+                    autoplay
+                    muted
+                    playsinline
+                ></video>
+            </a-assets>
+            <!-- <a-nft
+            videohandler
+            type="nft"
+            url="./data/dataNFT/JD"
+            smooth="true"
+            smoothCount="10"
+            smoothTolerance="0.01"
+            smoothThreshold="5"
+        > -->
+            <a-video
+                src="#vid"
+                position="0 0 -5"
+                rotation="0 0 0"
+                width="1.8"
+                height="1"
+            >
+            </a-video>
+            <!-- </a-nft> -->
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
 </html>
