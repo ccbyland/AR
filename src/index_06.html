@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>图像追踪：显示三维图形</title>
+        <script src="./js/aframe-master.min.js"></script>
+        <script src="./js/aframe-ar-nft.js"></script>
+    </head>
+    <body>
+        <!-- vr-mode-ui 组件允许禁用 UI，例如 Enter VR 按钮、兼容性模式和移动设备的方向模式 -->
+        <a-scene vr-mode-ui="enabled: false;">
+            <a-nft type="nft" url="./src/data/LZE">
+                <a-entity
+                    gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+                    position="20 0 -10"
+                    rotation="-90 0 0"
+                    scale="2 2 2"
+                >
+                </a-entity>
+            </a-nft>
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>
