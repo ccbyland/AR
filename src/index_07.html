@@ -11,17 +11,11 @@
         <!-- vr-mode-ui 组件允许禁用 UI，例如 Enter VR 按钮、兼容性模式和移动设备的方向模式 -->
         <a-scene vr-mode-ui="enabled: false;">
             <!-- look-at 使内容始终朝着用户相机看 -->
-            <!-- <a-text
-                value="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                look-at="[gps-camera]"
-                scale="10000 10000 10000"
-                gps-entity-place="latitude: 113.905345; longitude: 22.536677"
-            ></a-text> -->
             <a-box
                 material="color: yellow"
-                gps-entity-place="latitude: 113.906423; longitude: 22.540591"
+                gps-entity-place="latitude: 113.905928; longitude: 22.540591"
             />
-            <a-camera gps-camera rotation-reader> </a-camera>
+            <a-camera simulateLongitude="33.540591" simulateLatitude="114.905928" gps-camera rotation-reader> </a-camera>
         </a-scene>
     </body>
 </html>
