@@ -2,50 +2,49 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>虚拟现实：标记跟踪-显示图片</title>
+        <title>图像追踪：显示视频</title>
         <script src="./js/aframe-master.min.js"></script>
         <script src="./js/aframe-ar-nft.js"></script>
     </head>
-
-    <body style="margin: 0px; overflow: hidden">
-        <a-scene
-            vr-mode-ui="enabled: false;"
-            renderer="antialias: true; alpha: true; precision: mediump;"
-            embedded
-            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-        >
+    <script>
+        window.onload = function () {
+            AFRAME.registerComponent('video_handler', {
+                init: function () {
+                    var marker = this.el;
+                    this.vid = document.querySelector('#vid');
+                    marker.addEventListener('markerFound', () => {
+                        console.error('markerFound', this.vid);
+                        this.vid.play();
+                    });
+                    marker.addEventListener('markerLost', () => {
+                        console.error('markerLost', this.vid);
+                        this.vid.pause();
+                    });
+                },
+            });
+        };
+    </script>
+    <body>
+        <!-- vr-mode-ui 组件允许禁用 UI，例如 Enter VR 按钮、兼容性模式和移动设备的方向模式 -->
+        <a-scene vr-mode-ui="enabled: false;">
             <a-assets>
                 <video
-                    src="./video/demo.mp4"
-                    preload="auto"
                     id="vid"
-                    response-type="arraybuffer"
-                    loop
-                    crossorigin
-                    webkit-playsinline
-                    autoplay
-                    muted
-                    playsinline
+                    loop="true"
+                    preload="auto"
+                    src="./video/demo.mp4"
                 ></video>
             </a-assets>
-            <!-- <a-nft
-            videohandler
-            type="nft"
-            url="./data/dataNFT/JD"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance="0.01"
-            smoothThreshold="5"
-        > -->
-            <a-video
-                src="#vid"
-                position="0 0 -5"
-                rotation="0 0 0"
-                width="1.8"
-                height="1"
-            >
-            </a-video>
-            <!-- </a-nft> -->
+            <a-nft video_handler type="nft" url="./src/data/LZE">
+                <a-video
+                    src="#vid"
+                    width="160"
+                    height="90"
+                    position="0 0 -100"
+                    rotation="180 0 0"
+                >
+                </a-video>
+            </a-nft>
             <a-entity camera></a-entity>
         </a-scene>
     </body>
